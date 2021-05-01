@@ -21,8 +21,6 @@ import com.crrl.beatplayer.repository.repositoriesModule
 import com.crrl.beatplayer.ui.viewmodels.viewModelModule
 import com.crrl.beatplayer.utils.ReleaseTree
 import com.crrl.beatplayer.utils.utilsModule
-import com.google.firebase.FirebaseApp
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import org.jaudiotagger.tag.TagOptionSingleton
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -35,10 +33,7 @@ class BeatPlayerApplication : Application() {
         super.onCreate()
 
         TagOptionSingleton.getInstance().isAndroid = true
-
-        FirebaseApp.initializeApp(this)
-        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
-
+        
         if (DEBUG) {
             Timber.plant(Timber.DebugTree())
         } else {
